@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: opensearch-dashboards-expose
+spec:
+  type: LoadBalancer
+  externalIPs:
+  - MASTER_IP_ADDRESS
+  selector:
+    app: opensearch-dashboards
+  ports:
+  - name: http
+    protocol: TCP
+    port: 5601
+    targetPort: 5601
